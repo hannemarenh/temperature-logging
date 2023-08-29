@@ -5,8 +5,8 @@ export default function Home() {
         borderRadius: '40%'
     }
     return (
-        <main className="flex flex-col items-center justify-between ">
-            <Image src={"/unicorn.png"} height={500} width={500} style={imageStyle} alt={'Unicorn'} />
+        <main className="flex items-center justify-center w-full min-h-screen ">
+                <Image src={"/unicorn.png"} height={500} width={500} style={imageStyle} alt={'Unicorn'} />
         </main>
     )
 }
