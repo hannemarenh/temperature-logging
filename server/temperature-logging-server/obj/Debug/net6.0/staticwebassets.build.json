@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "HxqGiJaj6s8MyirJKJa158qy2tB3bYcqgnrYx9Rzii4=",
+  "Source": "temperature-logging-server",
+  "BasePath": "_content/temperature-logging-server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
