@@ -30,3 +30,16 @@ C:\MiniProjects\temperature-logging\server\temperature-logging-server\obj\Debug\
 C:\MiniProjects\temperature-logging\server\temperature-logging-server\obj\Debug\net6.0\temperature-logging-server.pdb
 C:\MiniProjects\temperature-logging\server\temperature-logging-server\obj\Debug\net6.0\temperature-logging-server.genruntimeconfig.cache
 C:\MiniProjects\temperature-logging\server\temperature-logging-server\obj\Debug\net6.0\ref\temperature-logging-server.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\DnsClient.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\SharpCompress.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\Snappier.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\ZstdSharp.dll
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\MiniProjects\temperature-logging\server\temperature-logging-server\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll

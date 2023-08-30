@@ -1,48 +1,40 @@
-﻿using temperature_logging_server.Models;
+﻿using Microsoft.Extensions.Options;
+using MongoDB.Driver;
+using temperature_logging_server.Models;
 
 namespace temperature_logging_server.Services
 {
-    public class LogEntryService
+    public class LogEntryService : ILogEntryService
     {
-        static List<LogEntry> LogEntries { get; }
-        static int nextId = 3;
-        static LogEntryService()
+        private readonly IMongoCollection<LogEntry> _logEntries;
+
+        public LogEntryService(IOptions<LogEntriesDatabaseSettings> logEntriesDatabaseSettings, IMongoClient mongoClient)
         {
-            LogEntries = new List<LogEntry>
-            {
-                new LogEntry {Id=1, Temperature=(float)37.5, Date=new DateTime(2023,08,28)},
-                new LogEntry {Id=2, Temperature=(float)37.8, Date=new DateTime(2023,08,29)}
-            };
+            var mongoDatabase = mongoClient.GetDatabase(logEntriesDatabaseSettings.Value.DatabaseName);
+            _logEntries = mongoDatabase.GetCollection<LogEntry>(logEntriesDatabaseSettings.Value.CollectionName);
+
         }
 
-        public static List<LogEntry> GetAll() => LogEntries;
+        public List<LogEntry> GetAll() => _logEntries.Find(logEntry => true).ToList();
 
-        public static LogEntry? Get(int id) => LogEntries.FirstOrDefault(l => l.Id == id);
-
-        public static void Add(LogEntry logEntry)
+        public LogEntry? Get(string id)
         {
-            logEntry.Id = nextId++;
-            LogEntries.Add(logEntry);
+            return  _logEntries.Find(l => l.Id == id).FirstOrDefault();
         }
 
-        public static void Update(LogEntry logEntry)
+        public void Add(LogEntry logEntry)
         {
-            var index = LogEntries.FindIndex(l => l.Id == logEntry.Id);
-            if(index == -1)
-            {
-                return;
-            }
-            LogEntries[index] = logEntry;
+            _logEntries.InsertOne(logEntry);
         }
 
-        public static void Delete(int id)
+        public void Update(LogEntry logEntry)
         {
-            var logEntry = Get(id);
-            if (logEntry == null)
-            {
-                return;
-            }
-            LogEntries.Remove(logEntry);
+            _logEntries.ReplaceOne(l => l.Id == logEntry.Id, logEntry);
+        }
+
+        public  void Delete(string id)
+        {
+            _logEntries.DeleteOne(l => l.Id == id);
         }
 
     }
