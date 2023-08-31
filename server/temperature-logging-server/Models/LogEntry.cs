@@ -7,7 +7,7 @@ namespace temperature_logging_server.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public string Id { get; set; } = string.Empty;
 
         [BsonElement("Temperature")]
         public float Temperature { get; set; }
