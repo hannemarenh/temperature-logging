@@ -69,12 +69,13 @@ export default Add;
 
 
 
-export async function postJSON<T>(url: string, body?: string): Promise<T> {
+async function postJSON<T>(url: string, body?: string): Promise<T> {
     return await internalPOST(url, body, {
         Accept: "application/json",
         "Content-Type": "application/json",
     });
 }
+
 async function internalPOST<T>(
     url: string,
     body?: string,
