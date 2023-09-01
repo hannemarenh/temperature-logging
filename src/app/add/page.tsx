@@ -1,7 +1,7 @@
 "use client"
 import { FormEvent, useState } from "react";
 import { postLogEntry } from "../api";
-import { Modal } from "../components/modal";
+import { ErrorModal, Modal } from "../components/modal";
 import { LogEntryInput } from "../LogEntry";
 
 const Add = () => {
@@ -11,6 +11,7 @@ const Add = () => {
     const [dateAsString, setDateAsString] = useState(todayDate.toISOString().substr(0, 10));
     const [temperature, setTemperature] = useState(38.0);
     const [openDialog, setIsOpenDialog] = useState(false);
+    const [error, setError] = useState(false);
 
     const url = 'https://localhost:44304/api/LogEntry';
     const defaultStyle = "flex flex-col justify-center items-center m-12 p-12";
@@ -25,6 +26,9 @@ const Add = () => {
         postLogEntry(url, JSON.stringify(body))
             .then(() => {
                 handleOpenDialog();
+            })
+            .catch(() => {
+                setError(true);
             })
     }
 
@@ -53,6 +57,7 @@ const Add = () => {
 
         <>
             {openDialog && <Modal onClose={handleOpenDialog} modalText="Submitted!" />}
+            {error && <ErrorModal onClose={() => setError(false)} errorType="serverError" />}
 
 
             <div className={style} >
