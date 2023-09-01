@@ -1,9 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import {
-    CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis,
-    YAxis, Label,
-    ZAxis
+    CartesianGrid, Label, Legend, ResponsiveContainer, Scatter, ScatterChart, XAxis,
+    YAxis
 } from "recharts";
 import { get } from "../api";
 import { ErrorModal } from "../components/modal";
