@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import {
     CartesianGrid, Legend, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis,
-    YAxis,
+    YAxis, Label,
     ZAxis
 } from "recharts";
 import { get } from "../api";
@@ -47,6 +47,20 @@ const Graph = () => {
         }
     }
 
+    const getYLabel = (view: View) => {
+        switch (view) {
+            case "day": {
+                return "Time of the day"
+            }
+            case "year": {
+                return "Month"
+            }
+            default: {
+                return "Date"
+            }
+        }
+    }
+
 
     const data: ScatterDataPoint[] = logEntryData.map((current) => {
         return {
@@ -76,8 +90,12 @@ const Graph = () => {
                         }}
                     >
                         <CartesianGrid />
-                        <XAxis type="number" dataKey="x" />
-                        <YAxis type="number" dataKey="y" name="Temperature" unit="C" />
+                        <XAxis type="number" dataKey="x">
+                            <Label value={getYLabel(view)} offset={0} position="insideBottom" />
+                        </XAxis>
+                        <YAxis type="number" dataKey="y" name="Temperature" unit="C" >
+                            <Label value="Temperature"   angle={-90} />
+                        </YAxis>
 
                         <Legend />
                         {
